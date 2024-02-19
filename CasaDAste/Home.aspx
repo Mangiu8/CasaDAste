@@ -1,14 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CasaDAste.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Home.aspx.cs" Inherits="CasaDAste.Home" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    
         <div>
             <!-- ciao, fammi una home page di un e-commerce con un form di ricerca -->
             <h1>Benvenuto su Casa d'Aste</h1>
@@ -32,7 +25,7 @@
                                 <p class="card-text"><%# Eval("Prezzo") %></p> 
                                 <p class="card-text"><%# Eval("Razza") %></p> 
                                 <asp:Button ID="Button1" runat="server" Text="Aggiungi al carrello" OnClick="Button1_Click" /> 
-                                <asp:Button ID="Button2" runat="server" Text="Visualizza dettagli" OnClick="Button2_Click" />                                                
+                                <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                              
                             </div>
                         </div>
                     </div>
@@ -43,6 +36,6 @@
             </asp:Repeater>
 
         </div>
-    </form>
-</body>
-</html>
+    
+  </asp:Content>
+
