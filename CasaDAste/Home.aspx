@@ -26,13 +26,13 @@
                 <ItemTemplate>
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img class="card-img-top" src='<%# Eval("Img") %>' alt="Immagine della Card">
+                            <img class="card-img-top" style="width: 200px" src='<%# Eval("Img") %>' alt="Immagine dello Schiavo">
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Nome") %></h5>
                                 <p class="card-text"><%# Eval("Prezzo") %></p> 
+                                <p class="card-text"><%# Eval("Razza") %></p> 
                                 <asp:Button ID="Button1" runat="server" Text="Aggiungi al carrello" OnClick="Button1_Click" /> 
-                                <asp:Button ID="Button2" runat="server" Text="Visualizza a dettagli" OnClick="Button2_Click" />                                 
-               
+                                <asp:Button ID="Button2" runat="server" Text="Visualizza dettagli" OnClick="Button2_Click" />                                                
                             </div>
                         </div>
                     </div>
