@@ -1,10 +1,14 @@
-﻿/* Wrapping element */
+﻿@import "_bootstrapOverrides.scss";
+/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
+.body-content
+
+{
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
 }
+
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -19,3 +23,5 @@ textarea {
         padding: 0;
     }
 }
+ 
+
