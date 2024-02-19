@@ -25,17 +25,19 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="col-md-4 mb-4">
-                            <div class="card">
+                            <div class="card h-100 manifestoWanted">
+                                <div class="imgWantedContainer">
                                 <img
-                                    class="card-img-top mx-auto"
+                                    class=""
                                     style="width: 200px"
                                     src='<%# Eval("Img") %>'
                                     alt="Immagine dello Schiavo">
-                                <div class="card-body">
+                                </div>
+                                <div class="card-body bodyWanted">
                                     <h5 class="card-title fw-bolder fs-3"><%# Eval("Nome") %></h5>
                                     <p class="card-text"><%# Eval("Prezzo") %></p>
                                     <p class="card-text"><%# Eval("Razza") %></p>
-                                <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                                                             
+                                    <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                                                             
                                     <asp:Button ID="Button1" class="btn btn-success" runat="server" Text="Aggiungi al carrello" OnClick="Button1_Click" />
                                 </div>
                             </div>

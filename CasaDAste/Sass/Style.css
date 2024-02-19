@@ -12103,8 +12103,24 @@ body {
   background-size: cover;
 }
 
-.card {
+.manifestoWanted {
   background-image: url("../img/posterWanted.png");
   background-size: cover;
-  height: 200px;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 416px;
+}
+.manifestoWanted .imgWantedContainer {
+  margin-top: 126px;
+  height: 245px;
+}
+.manifestoWanted .imgWantedContainer img {
+  max-height: 244px;
+  object-fit: contain;
+}
+.manifestoWanted button {
+  margin-bottom: 50px;
+}
+.manifestoWanted .bodyWanted {
+  height: 220px;
 }
