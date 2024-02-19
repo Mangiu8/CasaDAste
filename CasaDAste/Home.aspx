@@ -26,14 +26,14 @@
                     <ItemTemplate>
                         <div class="col-md-4 mb-4">
                             <div class="card h-100 manifestoWanted">
-                                <div class="imgWantedContainer">
+                                
                                 <img
-                                    class=""
+                                    class="mx-auto p-2"
                                     style="width: 200px"
                                     src='<%# Eval("Img") %>'
                                     alt="Immagine dello Schiavo">
-                                </div>
-                                <div class="card-body bodyWanted">
+                              
+                                <div class="card-body d-flex flex-column justify-content-between">
                                     <h5 class="card-title fw-bolder fs-3"><%# Eval("Nome") %></h5>
                                     <p class="card-text"><%# Eval("Prezzo") %></p>
                                     <p class="card-text"><%# Eval("Razza") %></p>

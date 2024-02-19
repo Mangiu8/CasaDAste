@@ -32,29 +32,10 @@ body {
 }
 
 .manifestoWanted {
-    background-image: url("../img/posterWanted.png");
+    background-image: url("../img/pergamena.jpg");
     background-size: cover; // image will cover the entire card
     background-repeat: no-repeat;
-    height: 600px;
-    width: 416px;
 
-    .imgWantedContainer {
-        margin-top: 126px;
-        height: 245px;
-
-        img {
-            max-height: 244px;
-            object-fit: contain;
-        }
-    }
-
-    button {
-        margin-bottom: 50px;
-    }
-
-    .bodyWanted {
-        height: 220px;
-    }
 }
  
 
