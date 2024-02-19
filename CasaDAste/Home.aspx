@@ -35,7 +35,7 @@
                                     <h5 class="card-title fw-bolder fs-3"><%# Eval("Nome") %></h5>
                                     <p class="card-text"><%# Eval("Prezzo") %></p>
                                     <p class="card-text"><%# Eval("Razza") %></p>
-                                    <asp:Button ID="Button2" class="btn btn-info" runat="server" Text="Visualizza dettagli" OnClick="Button2_Click" />
+                                <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                                                             
                                     <asp:Button ID="Button1" class="btn btn-success" runat="server" Text="Aggiungi al carrello" OnClick="Button1_Click" />
                                 </div>
                             </div>
