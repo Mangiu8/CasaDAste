@@ -12104,6 +12104,7 @@ body {
 }
 
 .card {
-  background-image: url("../img/wood3.jpg");
+  background-image: url("../img/posterWanted.png");
   background-size: cover;
+  height: 200px;
 }
