@@ -9,6 +9,7 @@ namespace CasaDAste
     public partial class Home : System.Web.UI.Page
     {
         static public List<Carrello> carrello = new List<Carrello>();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,9 +49,12 @@ namespace CasaDAste
         {
 
         }
-        protected void Button2_Click(object sender, EventArgs e)
-        {
+      
 
+        protected void Dettaglio_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            string IDProdott = e.CommandArgument.ToString();
+            Response.Redirect($"Dettaglio.aspx?id={IDProdott}");
         }
     }
 }
