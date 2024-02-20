@@ -29,11 +29,8 @@
                         <div class="col-md-4 mb-4">
                             <div class="card h-100 manifestoWanted shadow rounded-3">
                                 
-                                <img
-                                    class="mx-auto p-2"
-                                    
-                                    src='<%# Eval("Img") %>'
-                                    alt="Immagine dello Schiavo">
+                                <img class="mx-auto p-2" src='<%# String.IsNullOrEmpty(Eval("Img") as string) ? "img/default.jpg" : Eval("Img") %>' alt="Immagine dello Schiavo">
+
                               
                                 <div class="card-body d-flex flex-column justify-content-between text-center">
                                     <h5 class="card-title fw-bolder display-5 "><%# Eval("Nome") %></h5>
