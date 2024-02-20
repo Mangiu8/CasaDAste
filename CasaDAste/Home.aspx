@@ -14,7 +14,7 @@
         <h2 class="display-5">Il tuo portale schiavi</h2>
         <div class="d-flex my-3">
             <input type="text" class="form-control me-2" id="txtRicerca" runat="server" placeholder="Cerca il tuo schiavo" />
-            <input type="submit" class="p-2 btn btn-primary" value="Cerca" />
+            <asp:Button ID="SearchButton" CssClass="p-2 btn btn-primary" runat="server" Text="Cerca" OnClick="Search_Click" />
         </div>
         
         <!-- adesso facciamo una lista di prodotti -->
