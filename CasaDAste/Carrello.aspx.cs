@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CasaDAste
 {
     public partial class Carrello1 : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LegareArticoliCarrello();
+                CalcolaTotaleSpesa();
             }
         }
         private void LegareArticoliCarrello()
@@ -25,6 +28,37 @@ namespace CasaDAste
                 Response.Write("Carrello vuoto");
             }
 
+        }
+
+        protected void btnElimina_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            if (e.CommandName == "Elimina")
+            {
+                string nomeProdottoDaEliminare = e.CommandArgument.ToString();
+
+                if (Session["Carrello"] != null)
+                {
+                    var carrello = (List<Carrello>)Session["Carrello"];
+                    carrello.RemoveAll(p => p.Nome == nomeProdottoDaEliminare);
+
+                    LegareArticoliCarrello();
+                }
+            }
+        }
+
+        private void CalcolaTotaleSpesa()
+        {
+            if (Session["Carrello"] != null)
+            {
+                var carrello = (List<Carrello>)Session["Carrello"];
+                double totale = carrello.Sum(item => item.Prezzo);
+
+                lblTotale.Text = $"Totale: {totale:C}";
+            }
+            else
+            {
+                lblTotale.Text = "Totale: €0,00";
+            }
         }
     }
 }

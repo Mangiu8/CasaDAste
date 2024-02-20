@@ -60,12 +60,14 @@ namespace CasaDAste
                 string nomeProdotto = args[0];
                 double prezzoProdotto = Convert.ToDouble(args[2]);
                 string razzaProdotto = args[1];
+                string immagineProdotto = args[3];
 
                 Carrello nuovoProdotto = new Carrello
                 {
                     Nome = nomeProdotto,
                     Prezzo = prezzoProdotto,
                     Razza = razzaProdotto,
+                    Immagine = immagineProdotto,
                 };
 
                 if (Session["Carrello"] == null)
