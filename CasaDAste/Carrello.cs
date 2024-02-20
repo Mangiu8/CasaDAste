@@ -8,5 +8,6 @@
         public double Prezzo { get; set; }
         public int Quantita { get; set; }
         public string Immagine { get; set; }
+        public string Razza { get; set; }
     }
 }
