@@ -14,7 +14,7 @@
     <ItemTemplate>
         <div class="cart-item">
             <h4><%# Eval("Nome") %></h4>
-            <p>Descrizione: <%# Eval("Descrizione") %></p>
+            <p>Razza: <%# Eval("Razza") %></p>
             <p>Prezzo: <%# Eval("Prezzo", "{0:C}") %></p>
         </div>
     </ItemTemplate>

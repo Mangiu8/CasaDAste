@@ -38,7 +38,7 @@
                                     <p class="card-text fs-3 fw-semibold">Razza: <%# Eval("Razza") %></p>
                                     <div class="d-flex flex-wrap justify-content-between">
                                         <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-light rounded-pill px-3 fw-semibold" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                                                             
-                                        <asp:Button ID="Button1" CssClass="btn btn-success" runat="server" Text="Aggiungi al carrello" CommandName="AddToCart" CommandArgument='<%# Eval("Nome") + ";" + Eval("Razza") + ";" + Eval("Prezzo") %>' OnCommand="Button1_Command" />
+                                        <asp:Button ID="Button1" CssClass="btn btn-success rounded-pill px-3 fw-semibold" runat="server" Text="Aggiungi al carrello" CommandName="AddToCart" CommandArgument='<%# Eval("Nome") + ";" + Eval("Razza") + ";" + Eval("Prezzo") %>' OnCommand="Button1_Command" />
                                     </div>
                                 </div>
                             </div>
