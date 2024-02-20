@@ -12123,3 +12123,7 @@ body {
 td {
   border-width: 2px !important;
 }
+
+.bg-cart {
+  background-color: rgba(255, 255, 255, 0.4196078431);
+}
