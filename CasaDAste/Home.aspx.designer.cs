@@ -24,6 +24,15 @@ namespace CasaDAste
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtRicerca;
 
         /// <summary>
+        /// Controllo SearchButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SearchButton;
+
+        /// <summary>
         /// Controllo Repeater1.
         /// </summary>
         /// <remarks>
