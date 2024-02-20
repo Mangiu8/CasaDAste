@@ -78,6 +78,7 @@ namespace CasaDAste
                 // Otteniamo stato della sessione e si pusha, figa.
                 List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
                 carrello.Add(nuovoProdotto);
+                
 
             }
         }
