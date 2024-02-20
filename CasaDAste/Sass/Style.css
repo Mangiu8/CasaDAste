@@ -12161,7 +12161,8 @@ body {
 
 #MainContent_gridViewBackOffice {
   background-color: rgba(249, 246, 246, 0.4509803922);
-  border-color: rgba(0, 0, 0, 0.7294117647);
+  border-color: rgba(249, 246, 246, 0.85);
+  font-size: 18px;
 }
 
 table {
