@@ -35,10 +35,9 @@ namespace CasaDAste
             }
         }
 
-        protected void lnkEdit_Click(object sender, EventArgs e)
+        protected void LnkEdit_Click(object sender, EventArgs e)
         {
-            btnAdd.Text = "Modifica";
-            btnAdd.CommandArgument = (sender as LinkButton).CommandArgument;
+            BtnUpdate.Text = "Modifica";
             int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection(Prodotti);
@@ -61,6 +60,7 @@ namespace CasaDAste
                     prezzo.Text = reader1.GetDecimal(4).ToString();
                     quantita.Text = reader1.GetInt32(5).ToString();
                     razza.Text = reader1.GetString(6);
+                    idPerFavore.Text = reader1.GetInt32(0).ToString();
                 }
             }
             catch (Exception ex)
@@ -73,9 +73,10 @@ namespace CasaDAste
             }
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
+        protected void BtnDelete_Click(object sender, EventArgs e)
         {
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
+            int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             SqlConnection conn = new SqlConnection(Prodotti);
 
             try
@@ -87,7 +88,6 @@ namespace CasaDAste
                     CommandText = "DELETE FROM Prodotti WHERE iDProdott = @ID"
                 };
 
-                int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
 
                 command1.Parameters.AddWithValue("@ID", itemId);
 
@@ -107,13 +107,12 @@ namespace CasaDAste
 
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
+        protected void BtnUpdate_Click(object sender, EventArgs e)
         {
-
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection(Prodotti);
 
-            if (btnAdd.Text != "Modifica")
+            if (BtnUpdate.Text != "Modifica")
             {
                 try
                 {
@@ -160,25 +159,24 @@ namespace CasaDAste
                     command1.Parameters.AddWithValue("@Img", immagine.Text);
                     command1.Parameters.AddWithValue("@Nome", nome.Text);
                     command1.Parameters.AddWithValue("@Descrizione", descrizione.Text);
-                    command1.Parameters.AddWithValue("@Prezzo", prezzo.Text);
-                    command1.Parameters.AddWithValue("@QuantitaDisponibile", quantita.Text);
+                    command1.Parameters.AddWithValue("@Prezzo", Convert.ToDecimal(prezzo.Text));
+                    command1.Parameters.AddWithValue("@QuantitaDisponibile", Convert.ToInt32(quantita.Text));
                     command1.Parameters.AddWithValue("@Razza", razza.Text);
-                    int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
-                    command1.Parameters.AddWithValue("@ID", itemId);
+                    command1.Parameters.AddWithValue("@ID", Convert.ToInt32(idPerFavore.Text));
                     command1.ExecuteNonQuery();
                     Response.Write("Prodotto modificato correttamente");
                 }
                 catch (Exception ex)
                 {
-                    Response.Write(ex.Message);
+                    Response.Write(ex.ToString());
                 }
                 finally
                 {
-                    conn.Close();
 
+                    conn.Close();
+                    Response.Redirect(Request.RawUrl);
                 }
             }
-
         }
     }
 }

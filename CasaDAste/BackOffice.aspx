@@ -15,8 +15,10 @@
     <asp:TextBox ID="prezzo" runat="server" />
     <asp:TextBox ID="quantita" runat="server" />
     <asp:TextBox ID="razza" runat="server" />
-    <asp:Button ID="btnAdd" runat="server" Text="Aggiungi" OnClick="btnAdd_Click" />
-
+    <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
+   
+    <asp:LinkButton ID="BtnUpdate" runat="server" Text="Aggiorna" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
+    
     <asp:GridView
         ID="gridViewBackOffice"
         runat="server"
@@ -33,22 +35,22 @@
             <asp:BoundField DataField="Prezzo" HeaderText="Prezzo" />
             <asp:BoundField DataField="QuantitaDisponibile" HeaderText="QuantitaDisponibile" />
             <asp:BoundField DataField="Razza" HeaderText="Razza" />
-            <asp:TemplateField HeaderText="Modifica">
+            <asp:TemplateField>
                 <ItemTemplate>
                     <asp:LinkButton
-                        ID="lnkEdit"
+                        ID="LnkEdit"
                         runat="server"
                         class="btn btn-primary"
                         Text="Modifica"
-                        OnClick="lnkEdit_Click"
+                        OnClick="LnkEdit_Click"
                         CommandArgument='<%# Eval("IDProdott") %>'>
                     </asp:LinkButton>
                     <asp:LinkButton
-                        ID="btnDelete"
+                        ID="BtnDelete"
                         runat="server"
                         class="btn btn-danger"
                         Text="Elimina"
-                        OnClick="btnDelete_Click"
+                        OnClick="BtnDelete_Click"
                         CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
