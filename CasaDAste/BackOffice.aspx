@@ -37,7 +37,7 @@
     <asp:TextBox ID="razza" runat="server" />
     <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
  </div>
-    <asp:LinkButton ID="BtnUpdate" CssClass="btn btn-success btnModifica" runat="server" Text="Aggiorna" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
+    <asp:LinkButton ID="BtnUpdate" CssClass="btn btn-success btnModifica" runat="server" Text="Aggiungi" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
         </div>
     
     <asp:GridView
