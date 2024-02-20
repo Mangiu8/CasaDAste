@@ -9,7 +9,12 @@ namespace CasaDAste
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                // Register JavaScript code to show an alert when the page loads
+                string script = "alert('Ogni riferimento a cose o persone e puramente casuale');";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertScript", script, true);
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
