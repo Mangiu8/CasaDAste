@@ -11,7 +11,6 @@ namespace CasaDAste
         {
             if (!IsPostBack)
             {
-                // Register JavaScript code to show an alert when the page loads
                 string script = "alert('Ogni riferimento a cose o persone e puramente casuale');";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertScript", script, true);
             }
@@ -44,6 +43,7 @@ namespace CasaDAste
                     else
                     {
                         Label1.Text = "Username o Password errati";
+
                     }
                 }
             }

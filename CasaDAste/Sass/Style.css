@@ -12120,6 +12120,92 @@ body {
   object-fit: contain;
 }
 
-td {
-  border-width: 2px !important;
+#LoginDiv {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-around;
+  margin-top: 5rem;
+}
+
+#MainContent_Label1 {
+  color: darkred;
+}
+
+#Container {
+  display: inline-block;
+  background-color: rgba(249, 246, 246, 0.4509803922);
+  padding: 3.5rem;
+  border-radius: 10px;
+  border: 1px solid #420588;
+}
+
+.formLog {
+  border-radius: 5px;
+  height: 2.2rem;
+  padding: 0.5rem;
+  margin: 0.3rem;
+}
+
+#FormDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.BOTTONE {
+  margin-top: 0.6rem;
+  width: 7rem;
+}
+
+#MainContent_gridViewBackOffice {
+  background-color: rgba(249, 246, 246, 0.4509803922);
+  border-color: rgba(0, 0, 0, 0.7294117647);
+}
+
+table {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+th, td {
+  border: 1px solid rgba(0, 0, 0, 0.5215686275);
+  text-align: center;
+  padding: 8px;
+}
+
+.backButton {
+  margin-top: 0.5rem;
+  width: 7rem;
+}
+
+#primoFlex {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+#secondoFlex {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+#terzoFlex {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+#ContainerFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnModifica {
+  margin-top: 20px;
+  margin-left: 10px;
 }
