@@ -23,10 +23,6 @@ namespace CasaDAste
                 rptCarrello.DataSource = carrello;
                 rptCarrello.DataBind();
             }
-            else
-            {
-                Response.Write("Carrello vuoto");
-            }
 
         }
 
@@ -42,6 +38,7 @@ namespace CasaDAste
                     carrello.RemoveAll(p => p.Nome == nomeProdottoDaEliminare);
 
                     LegareArticoliCarrello();
+                    CalcolaTotaleSpesa();
                 }
             }
         }
@@ -53,11 +50,11 @@ namespace CasaDAste
                 var carrello = (List<Carrello>)Session["Carrello"];
                 double totale = carrello.Sum(item => item.Prezzo);
 
-                lblTotale.Text = $"Totale: {totale:C}";
+                lblTotale.Text = $"Totale: {totale} Berries";
             }
             else
             {
-                lblTotale.Text = "Totale: €0,00";
+                lblTotale.Text = "Totale: 0,00 Berries";
             }
         }
     }
