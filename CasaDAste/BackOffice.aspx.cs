@@ -35,10 +35,9 @@ namespace CasaDAste
             }
         }
 
-        protected void lnkEdit_Click(object sender, EventArgs e)
+        protected void LnkEdit_Click(object sender, EventArgs e)
         {
-            btnAdd.Text = "Modifica";
-            btnAdd.CommandArgument = (sender as LinkButton).CommandArgument;
+            BtnUpdate.Text = "Modifica";
             int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection(Prodotti);
@@ -73,9 +72,10 @@ namespace CasaDAste
             }
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
+        protected void BtnDelete_Click(object sender, EventArgs e)
         {
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
+            int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             SqlConnection conn = new SqlConnection(Prodotti);
 
             try
@@ -87,7 +87,6 @@ namespace CasaDAste
                     CommandText = "DELETE FROM Prodotti WHERE iDProdott = @ID"
                 };
 
-                int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
 
                 command1.Parameters.AddWithValue("@ID", itemId);
 
@@ -107,13 +106,12 @@ namespace CasaDAste
 
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
+        protected void BtnUpdate_Click(object sender, EventArgs e)
         {
-
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection(Prodotti);
 
-            if (btnAdd.Text != "Modifica")
+            if (BtnUpdate.Text != "Modifica")
             {
                 try
                 {
@@ -178,7 +176,6 @@ namespace CasaDAste
 
                 }
             }
-
         }
     }
 }
