@@ -15,6 +15,7 @@
     <asp:TextBox ID="prezzo" runat="server" />
     <asp:TextBox ID="quantita" runat="server" />
     <asp:TextBox ID="razza" runat="server" />
+    <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
    
     <asp:LinkButton ID="BtnUpdate" runat="server" Text="Aggiorna" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
     
