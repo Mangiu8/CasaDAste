@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Runtime.Remoting.Messaging;
 
 namespace CasaDAste
 {
@@ -41,7 +34,7 @@ namespace CasaDAste
                         razzaProdotto.InnerText= "Razza: " +reader1.GetString(6);
                         quantita.Attributes["max"] = reader1.GetInt32(5).ToString();
                     }
-                   
+
                 }
                 catch (Exception ex)
                 {
@@ -56,9 +49,28 @@ namespace CasaDAste
 
         protected void AddToCart_Click(object sender, EventArgs e)
         {
-            int qt = Int32.Parse( quantita.Text);
-            //crea cookie
+            //string productName = nomeProdotto.InnerText;
+            //string productRace = razzaProdotto.InnerText;
+            //string productDescription = descrizioneProdotto.InnerText;
 
+
+
+
+
+            //CartItem newItem = new CartItem(productName, productRace, productDescription);
+
+
+            //if (Session["Cart"] == null)
+            //{
+            //    List<CartItem> cartItems = new List<CartItem>();
+            //    cartItems.Add(newItem);
+            //    Session["Cart"] = cartItems;
+            //}
+            //else
+            //{
+            //    List<CartItem> cartItems = (List<CartItem>)Session["Cart"];
+            //    cartItems.Add(newItem);
+            //}
 
             Response.Redirect("Carrello.aspx");
         }
