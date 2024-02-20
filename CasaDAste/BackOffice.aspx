@@ -25,7 +25,6 @@
         BorderColor="Black"
         CellPadding="5"
         AutoGenerateColumns="False">
-
         <Columns>
             <asp:BoundField DataField="IDProdott" HeaderText="iDProdott" />
             <asp:BoundField DataField="Img" HeaderText="Img" />
@@ -43,7 +42,6 @@
                         Text="Modifica"
                         OnClick="lnkEdit_Click"
                         CommandArgument='<%# Eval("IDProdott") %>'>
-
                     </asp:LinkButton>
                     <asp:LinkButton
                         ID="btnDelete"

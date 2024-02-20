@@ -37,7 +37,40 @@ namespace CasaDAste
 
         protected void lnkEdit_Click(object sender, EventArgs e)
         {
-            btnAdd.Text = "Aggiorna";
+            btnAdd.Text = "Modifica";
+            btnAdd.CommandArgument = (sender as LinkButton).CommandArgument;
+            int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+            string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
+            SqlConnection conn = new SqlConnection(Prodotti);
+
+            try
+            {
+                conn.Open();
+                SqlCommand command1 = new SqlCommand
+                {
+                    Connection = conn,
+                    CommandText = "Select * from Prodotti where iDProdott = @ID"
+                };
+                command1.Parameters.AddWithValue("@ID", itemId);
+                SqlDataReader reader1 = command1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    immagine.Text = reader1.GetString(1);
+                    nome.Text = reader1.GetString(2);
+                    descrizione.Text = reader1.GetString(3);
+                    prezzo.Text = reader1.GetDecimal(4).ToString();
+                    quantita.Text = reader1.GetInt32(5).ToString();
+                    razza.Text = reader1.GetString(6);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -80,37 +113,72 @@ namespace CasaDAste
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection(Prodotti);
 
-
-            try
+            if (btnAdd.Text != "Modifica")
             {
-                conn.Open();
-                SqlCommand command1 = new SqlCommand
+                try
                 {
-                    Connection = conn,
-                    CommandText = "INSERT INTO Prodotti (Img, Nome, Descrizione, Prezzo, QuantitaDisponibile, Razza)" +
-                                  "VALUES (@Img, @Nome, @Descrizione, @Prezzo, @QuantitaDisponibile, @Razza)"
-                };
+                    conn.Open();
+                    SqlCommand command1 = new SqlCommand
+                    {
+                        Connection = conn,
+                        CommandText = "INSERT INTO Prodotti (Img, Nome, Descrizione, Prezzo, QuantitaDisponibile, Razza)" +
+                                      "VALUES (@Img, @Nome, @Descrizione, @Prezzo, @QuantitaDisponibile, @Razza)"
+                    };
 
-                command1.Parameters.AddWithValue("@Img", immagine.Text);
-                command1.Parameters.AddWithValue("@Nome", nome.Text);
-                command1.Parameters.AddWithValue("@Descrizione", descrizione.Text);
-                command1.Parameters.AddWithValue("@Prezzo", prezzo.Text);
-                command1.Parameters.AddWithValue("@QuantitaDisponibile", quantita.Text);
-                command1.Parameters.AddWithValue("@Razza", razza.Text);
+                    command1.Parameters.AddWithValue("@Img", immagine.Text);
+                    command1.Parameters.AddWithValue("@Nome", nome.Text);
+                    command1.Parameters.AddWithValue("@Descrizione", descrizione.Text);
+                    command1.Parameters.AddWithValue("@Prezzo", prezzo.Text);
+                    command1.Parameters.AddWithValue("@QuantitaDisponibile", quantita.Text);
+                    command1.Parameters.AddWithValue("@Razza", razza.Text);
 
-                command1.ExecuteNonQuery();
-                Response.Write("Prodotto aggiunto correttamente");
+                    command1.ExecuteNonQuery();
+                    Response.Write("Prodotto aggiunto correttamente");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                    Response.Redirect(Request.RawUrl);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Response.Write(ex.Message);
+                try
+                {
+                    conn.Open();
+                    SqlCommand command1 = new SqlCommand
+                    {
+                        Connection = conn,
+                        CommandText = "Update Prodotti " +
+                                      "SET Img = @Img, Nome = @Nome, Descrizione = @Descrizione, Prezzo = @Prezzo, QuantitaDisponibile = @QuantitaDisponibile, Razza = @Razza " +
+                                      "WHERE iDProdott = @ID"
+                    };
+                    command1.Parameters.AddWithValue("@Img", immagine.Text);
+                    command1.Parameters.AddWithValue("@Nome", nome.Text);
+                    command1.Parameters.AddWithValue("@Descrizione", descrizione.Text);
+                    command1.Parameters.AddWithValue("@Prezzo", prezzo.Text);
+                    command1.Parameters.AddWithValue("@QuantitaDisponibile", quantita.Text);
+                    command1.Parameters.AddWithValue("@Razza", razza.Text);
+                    int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
+                    command1.Parameters.AddWithValue("@ID", itemId);
+                    command1.ExecuteNonQuery();
+                    Response.Write("Prodotto modificato correttamente");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+
+                }
             }
-            finally
-            {
-                conn.Close();
-                // refresh the page
-                Response.Redirect(Request.RawUrl);
-            }
+
         }
     }
 }
