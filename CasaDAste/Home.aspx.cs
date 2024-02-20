@@ -82,5 +82,40 @@ namespace CasaDAste
 
             }
         }
+
+        protected void Search_Click(object sender, EventArgs e)
+        {
+            string search = txtRicerca.Value.Trim();
+            string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
+
+            using (SqlConnection conn = new SqlConnection(Prodotti))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand
+                    {
+                        Connection = conn,
+                        CommandText = "Select * from Prodotti where Nome like'%' + @searchText + '%' OR Razza LIKE '%' + @searchText + '%'"
+                    };
+                    command.Parameters.AddWithValue("@searchText", search);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+
+                    Repeater1.DataSource = dataTable;
+                    Repeater1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
     }
 }
