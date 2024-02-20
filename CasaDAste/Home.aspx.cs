@@ -79,7 +79,6 @@ namespace CasaDAste
                 List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
                 carrello.Add(nuovoProdotto);
 
-                Response.Redirect("Carrello.aspx");
             }
         }
 
