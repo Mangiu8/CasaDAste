@@ -12101,10 +12101,29 @@ textarea {
 body {
   background-image: url("https://www.opgt.it/files/gallerie/tv/Ep_512/041.jpg");
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.overflow-auto {
+  overflow: scroll;
 }
 
 .manifestoWanted {
   background-image: url("../img/pergamena.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+}
+
+.manifestoWanted img {
+    height: 300px;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+}
+
+.manifestoWanted img {
+  height: 300px;
+  aspect-ratio: 4/3;
+  object-fit: contain;
 }

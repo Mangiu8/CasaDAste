@@ -8,15 +8,17 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div>
+    <div class="overflow-auto">
         <!-- ciao, fammi una home page di un e-commerce con un form di ricerca -->
-        <h1>Benvenuto su Casa d'Aste</h1>
-        <h2>Il tuo portale schiavi</h2>
-        <h3>Effettua una ricerca</h3>
-        <input type="text" id="txtRicerca" runat="server" />
-        <input type="submit" value="Cerca" />
+        <h1 class="display-3">Benvenuto su Casa d'Aste</h1>
+        <h2 class="display-5">Il tuo portale schiavi</h2>
+        <div class="d-flex my-3">
+            <input type="text" class="form-control me-2" id="txtRicerca" runat="server" placeholder="Cerca il tuo schiavo" />
+            <input type="submit" class="p-2 btn btn-primary" value="Cerca" />
+        </div>
+        
         <!-- adesso facciamo una lista di prodotti -->
-        <h3>Prodotti in vendita</h3>
+        <h3 class="display-5 mt-3">Schiavi in vendita</h3>
         <!-- qui ci va il repeater -->
         <div class="container">
             <div class="row">
@@ -25,21 +27,22 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="col-md-4 mb-4">
-                            <div class="card h-100 manifestoWanted">
+                            <div class="card h-100 manifestoWanted shadow rounded-3">
                                 
                                 <img
                                     class="mx-auto p-2"
-                                    style="width: 200px"
+                                    
                                     src='<%# Eval("Img") %>'
                                     alt="Immagine dello Schiavo">
                               
-                                <div class="card-body d-flex flex-column justify-content-between">
-                                    <h5 class="card-title fw-bolder fs-3"><%# Eval("Nome") %></h5>
-                                    <p class="card-text"><%# Eval("Prezzo") %></p>
-                                    <p class="card-text"><%# Eval("Razza") %></p>
-                                    <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                                                             
-                                    <asp:Button ID="Button1" CssClass="btn btn-success" runat="server" Text="Aggiungi al carrello" CommandName="AddToCart" CommandArgument='<%# Eval("Nome") + ";" + Eval("Prezzo") + ";" + Eval("Razza") %>' OnCommand="Button1_Command"  />
-
+                                <div class="card-body d-flex flex-column justify-content-between text-center">
+                                    <h5 class="card-title fw-bolder display-5 "><%# Eval("Nome") %></h5>
+                                    <p class="card-text fs-3 fw-semibold"><%# Eval("Prezzo") %> Berries</p>
+                                    <p class="card-text fs-3 fw-semibold">Razza: <%# Eval("Razza") %></p>
+                                    <div class="d-flex flex-wrap justify-content-between">
+                                        <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-light rounded-pill px-3 fw-semibold" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                                                             
+                                        <asp:Button ID="Button1" class="btn btn-success rounded-pill px-3 fw-semibold" runat="server" Text="Aggiungi al carrello" OnClick="Button1_Click" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

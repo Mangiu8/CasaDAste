@@ -30,8 +30,8 @@ namespace CasaDAste
                         imgProdotto.Src = reader1.GetString(1);
                         nomeProdotto.InnerText = reader1.GetString(2);
                         descrizioneProdotto.InnerText = reader1.GetString(3);
-                        prezzoProdotto.InnerText = "Prezzo: " + reader1.GetDecimal(4).ToString("0.00");
-                        razzaProdotto.InnerText = reader1.GetString(6);
+                        prezzoProdotto.InnerText = "Prezzo: " +reader1.GetDecimal(4).ToString("0.00") +" Berries";
+                        razzaProdotto.InnerText= "Razza: " +reader1.GetString(6);
                         quantita.Attributes["max"] = reader1.GetInt32(5).ToString();
                     }
 
