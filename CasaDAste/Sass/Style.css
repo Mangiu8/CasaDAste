@@ -12108,3 +12108,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+td {
+  border-width: 2px !important;
+}
