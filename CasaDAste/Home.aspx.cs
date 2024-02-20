@@ -58,8 +58,8 @@ namespace CasaDAste
             {
                 string[] args = e.CommandArgument.ToString().Split(';');
                 string nomeProdotto = args[0];
-                double prezzoProdotto = Convert.ToDouble(args[1]);
-                string razzaProdotto = args[2];
+                double prezzoProdotto = Convert.ToDouble(args[2]);
+                string razzaProdotto = args[1];
 
                 Carrello nuovoProdotto = new Carrello
                 {
