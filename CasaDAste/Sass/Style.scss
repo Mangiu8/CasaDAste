@@ -1,4 +1,5 @@
-﻿@import "_bootstrapOverrides.scss";
+﻿@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import "_bootstrapOverrides.scss";
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content
@@ -31,7 +32,10 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    font-family: 'Pirata One', cursive;
 }
+
+
 
 .overflow-auto{
     overflow:scroll;
@@ -82,9 +86,10 @@ body {
     width: 7rem;
 }
 #MainContent_gridViewBackOffice {
-    background-color: #f9f6f673;
+    background-color: rgb(249 246 246 / 85%);
     border-color: rgb(249 246 246 / 85%);
-    font-size:18px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
 }
 table {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -99,31 +104,11 @@ th, td {
     margin-top:0.5rem;
     width:7rem;
 }
-#primoFlex {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem;
-}
-#secondoFlex {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem;
-}
-#terzoFlex{
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem;
-}
-#ContainerFlex {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.btnModifica {
-    margin-top: 20px;
-    margin-left: 10px;
-}
-.bg-cart {
-    background-color: #ffffff6b;
+
+
+#modifyingFields {
+    font-family: 'Times New Roman', Times, serif;
+    & > * {
+        max-width: 100%;
+    }
 }

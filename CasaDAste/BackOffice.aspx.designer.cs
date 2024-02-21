@@ -33,15 +33,6 @@ namespace CasaDAste
         protected global::System.Web.UI.WebControls.TextBox nome;
 
         /// <summary>
-        /// Controllo descrizione.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descrizione;
-
-        /// <summary>
         /// Controllo prezzo.
         /// </summary>
         /// <remarks>
@@ -76,6 +67,15 @@ namespace CasaDAste
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox idPerFavore;
+
+        /// <summary>
+        /// Controllo descrizione.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea descrizione;
 
         /// <summary>
         /// Controllo BtnUpdate.

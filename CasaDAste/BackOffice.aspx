@@ -8,42 +8,59 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>BackOffice</h2>
-    <div id="ContainerFlex">
-    <div id="primoFlex">
-    <asp:Label Text="Aggiungi/Modifica Immagine" runat="server" />
-  
-    <asp:TextBox ID="immagine" runat="server" />  
-   
-    <asp:Label Text="Aggiungi/Modifica Nome" runat="server" />
-  
-    <asp:TextBox ID="nome" runat="server" />
-   
-   </div> 
-        <div id="secondoFlex">
-    <asp:Label Text="Aggiungi/Modifica Descrizione" runat="server" />
-  
-    <asp:TextBox ID="descrizione" runat="server" />
-    <asp:Label Text="Aggiungi/Modifica Prezzo" runat="server" />
-  
-    <asp:TextBox ID="prezzo" runat="server" />
- </div>
-   <div id="terzoFlex">
-    <asp:Label Text="Aggiungi/Modifica Quantita" runat="server" />
-  
-    <asp:TextBox ID="quantita" runat="server" />
+    <%--<div id="ContainerFlex">
+        <div id="primoFlex">
+            <asp:Label Text="Aggiungi/Modifica Immagine" runat="server" />
 
-    <asp:Label Text="Aggiungi/Modifica Razza" runat="server" />
+            <asp:TextBox ID="immagine" runat="server" />
 
-    <asp:TextBox ID="razza" runat="server" />
-    <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
- </div>
-    <asp:LinkButton ID="BtnUpdate" CssClass="btn btn-success btnModifica" runat="server" Text="Aggiungi" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
+            <asp:Label Text="Aggiungi/Modifica Nome" runat="server" />
+
+            <asp:TextBox ID="nome" runat="server" />
+
         </div>
-    
+        <div id="secondoFlex">
+            <asp:Label Text="Aggiungi/Modifica Descrizione" runat="server" />
+
+            <asp:TextBox ID="prezzo" runat="server" />
+        </div>
+        <div id="terzoFlex">
+            <asp:Label Text="Aggiungi/Modifica Quantita" runat="server" />
+
+            <asp:TextBox ID="quantita" runat="server" />
+
+            <asp:Label Text="Aggiungi/Modifica Razza" runat="server" />
+
+            <asp:TextBox ID="razza" runat="server" />
+            <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
+        </div>
+          <asp:Label Text="Aggiungi/Modifica Prezzo" runat="server" />
+          <textarea ID="descrizione" runat="server"></textarea>
+        <asp:LinkButton ID="BtnUpdate" CssClass="btn btn-success btnModifica" runat="server" Text="Aggiungi" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
+    </div>--%>
+
+    <div id="modifyingFields" class="d-flex flex-column">
+        <asp:Label Text="Aggiungi/Modifica Immagine" runat="server" />
+        <asp:TextBox ID="immagine" runat="server"  />
+        <asp:Label Text="Aggiungi/Modifica Nome" runat="server" />
+        <asp:TextBox ID="nome" runat="server" />
+        <asp:Label Text="Aggiungi/Modifica Prezzo" runat="server" />
+        <asp:TextBox ID="prezzo" runat="server"/>
+        <asp:Label Text="Aggiungi/Modifica Quantita" runat="server" />
+        <asp:TextBox ID="quantita" runat="server" />
+        <asp:Label Text="Aggiungi/Modifica Razza" runat="server" />
+        <asp:TextBox ID="razza" runat="server" />
+        <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
+        <asp:Label Text="Aggiungi/Modifica Descrizione" runat="server" />
+        <Textarea ID="descrizione" runat="server" />
+        <asp:LinkButton ID="BtnUpdate" CssClass="btn btn-success my-4" runat="server" Text="Aggiungi" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
+    </div>
+
+
     <asp:GridView
         ID="gridViewBackOffice"
         runat="server"
-        BorderWidth="1px"             
+        BorderWidth="1px"
         CellPadding="5"
         AutoGenerateColumns="False">
         <Columns>
