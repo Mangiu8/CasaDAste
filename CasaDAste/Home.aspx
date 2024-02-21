@@ -40,7 +40,7 @@
                                         <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-light rounded-pill px-3 fw-semibold" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
-                                                <asp:Button ID="Button1" CssClass="btn btn-success rounded-pill px-3 fw-semibold" runat="server" Text="Aggiungi al carrello" CommandName="AddToCart" CommandArgument='<%# Eval("Nome") + ";" + Eval("Razza") + ";" + Eval("Prezzo") + ";" + Eval("Img") %>' OnCommand="Button1_Command" OnClientClick="return mostraImmagine();" />
+                                                <asp:Button ID="Button1" CssClass="btn btn-success rounded-pill px-3" runat="server" Text="Aggiungi al carrello" CommandName="AddToCart" CommandArgument='<%# Eval("Nome") + ";" + Eval("Razza") + ";" + Eval("Prezzo") + ";" + Eval("Img") %>' OnCommand="Button1_Command" OnClientClick="return mostraImmagine();" />
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
 
