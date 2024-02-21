@@ -12,7 +12,7 @@
 
     <div class="overflow-auto">
         <!-- ciao, fammi una home page di un e-commerce con un form di ricerca -->
-        <h1 class="display-3">Benvenuto su Casa d'Aste</h1>
+        <h1 class="display-3">Benvenuto su Casa d'Aste - Lo schiavo felice</h1>
         <h2 class="display-5">Il tuo portale schiavi</h2>
         <div class="d-flex my-3">
             <input type="text" class="form-control me-2" id="txtRicerca" runat="server" placeholder="Cerca il tuo schiavo" />

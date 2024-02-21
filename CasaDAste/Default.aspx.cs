@@ -10,10 +10,21 @@ namespace CasaDAste
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                string script = "alert('Ogni riferimento a cose o persone è puramente casuale, forse...');";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertScript", script, true);
-            }
+    {
+        string script = @"
+            Swal.fire({
+                imageUrl: 'https://www.shutterstock.com/image-vector/ancient-roman-gladiator-sword-slave-600nw-2100757492.jpg',
+                imageAlt: 'schiavo',
+                title: 'Benvenuto!',
+                text: 'Ogni riferimento a cose e persone è puramente casuale, forse... nessuno schiavo è stato ""maltrattato"".',
+                icon: 'warning',
+                confirmButtonText: 'Entra'
+            });";
+
+
+
+        ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
+    }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -12104,7 +12105,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  font-family: "Pirata One", cursive;
+  font-family: "Allerta Stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .overflow-auto {
@@ -12153,7 +12156,7 @@ body {
 #FormDiv {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .BOTTONE {
