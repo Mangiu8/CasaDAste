@@ -15,6 +15,33 @@ namespace CasaDAste
     {
 
         /// <summary>
+        /// Controllo Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// Controllo Label2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// Controllo Labelimg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelimg;
+
+        /// <summary>
         /// Controllo immagine.
         /// </summary>
         /// <remarks>
@@ -22,6 +49,15 @@ namespace CasaDAste
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox immagine;
+
+        /// <summary>
+        /// Controllo Labelnome.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelnome;
 
         /// <summary>
         /// Controllo nome.
@@ -33,6 +69,15 @@ namespace CasaDAste
         protected global::System.Web.UI.WebControls.TextBox nome;
 
         /// <summary>
+        /// Controllo Labelprezzo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelprezzo;
+
+        /// <summary>
         /// Controllo prezzo.
         /// </summary>
         /// <remarks>
@@ -42,6 +87,15 @@ namespace CasaDAste
         protected global::System.Web.UI.WebControls.TextBox prezzo;
 
         /// <summary>
+        /// Controllo Labelqnt.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelqnt;
+
+        /// <summary>
         /// Controllo quantita.
         /// </summary>
         /// <remarks>
@@ -49,6 +103,15 @@ namespace CasaDAste
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox quantita;
+
+        /// <summary>
+        /// Controllo Labelrazza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelrazza;
 
         /// <summary>
         /// Controllo razza.
@@ -67,6 +130,15 @@ namespace CasaDAste
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox idPerFavore;
+
+        /// <summary>
+        /// Controllo Labeldescrizione.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labeldescrizione;
 
         /// <summary>
         /// Controllo descrizione.

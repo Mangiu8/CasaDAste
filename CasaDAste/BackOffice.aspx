@@ -8,24 +8,25 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>BackOffice</h2>
-
+    <asp:Label ID="Label1" runat="server" Text="Benvenuto nel tuo backoffice" />
+    <br />
+    <asp:Label ID="Label2" runat="server"  />
     <div id="modifyingFields" class="d-flex flex-column">
-        <asp:Label Text="Aggiungi/Modifica Immagine" runat="server" />
+        <asp:Label ID="Labelimg" Text="Aggiungi l'immagine del tuo schiavo" runat="server" />
         <asp:TextBox ID="immagine" runat="server"  />
-        <asp:Label Text="Aggiungi/Modifica Nome" runat="server" />
+        <asp:Label ID="Labelnome" Text="Aggiungi il nome del tuo schiavo" runat="server" />
         <asp:TextBox ID="nome" runat="server" />
-        <asp:Label Text="Aggiungi/Modifica Prezzo" runat="server" />
+        <asp:Label ID="Labelprezzo" Text="Aggiungi il suo prezzo" runat="server" />
         <asp:TextBox ID="prezzo" runat="server"/>
-        <asp:Label Text="Aggiungi/Modifica Quantita" runat="server" />
+        <asp:Label ID="Labelqnt" Text="Aggiungi la quantita" runat="server" />
         <asp:TextBox ID="quantita" runat="server" />
-        <asp:Label Text="Aggiungi/Modifica Razza" runat="server" />
+        <asp:Label ID="Labelrazza" Text="Aggiungi la sua razza" runat="server" />
         <asp:TextBox ID="razza" runat="server" />
         <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
-        <asp:Label Text="Aggiungi/Modifica Descrizione" runat="server" />
+        <asp:Label  ID="Labeldescrizione" Text="Aggiungi la descrizione del tuo schiavo" runat="server" />
         <Textarea ID="descrizione" runat="server" />
         <asp:LinkButton ID="BtnUpdate" CssClass="btn btn-success my-4" runat="server" Text="Aggiungi" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
     </div>
-
 
     <asp:GridView
         ID="gridViewBackOffice"

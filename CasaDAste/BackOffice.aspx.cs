@@ -13,6 +13,11 @@ namespace CasaDAste
             Session["User"] = "admin"; //todo: da togliere questa riga
             if (!IsPostBack)
             {
+                if (Session["Message"] != null)
+                {
+                    Label2.Text = Session["Message"].ToString();
+                    Session["Message"] = null;
+                }
                 string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
                 SqlConnection conn = new SqlConnection(Prodotti);
                 try
@@ -39,6 +44,13 @@ namespace CasaDAste
         protected void LnkEdit_Click(object sender, EventArgs e)
         {
             BtnUpdate.Text = "Modifica";
+            Labelimg.Text = "Modifica l'immagine del tuo schiavo";
+            Labelnome.Text = "Modifica il nome del tuo schiavo";
+            Labeldescrizione.Text = "Modifica la descrizione del tuo schiavo";
+            Labelprezzo.Text = "Modifica il prezzo del tuo schiavo";
+            Labelqnt.Text = "Modifica la quantità disponibile del tuo schiavo";
+            Labelrazza.Text = "Modifica la razza del tuo schiavo";
+
             int itemId = Convert.ToInt32((sender as LinkButton).CommandArgument);
             string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection(Prodotti);
@@ -93,16 +105,17 @@ namespace CasaDAste
                 command1.Parameters.AddWithValue("@ID", itemId);
 
                 command1.ExecuteNonQuery();
-                Response.Write("Prodotto eliminato correttamente");
+                Session["Message"] = "Schiavo eliminato correttamente, spero per te che tu abbia nascosto bene il cadavere.";
             }
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
+                Session["Message"] = "Errore nell'eliminazione dello schiavo, sparagli, fai prima.";
             }
             finally
             {
                 conn.Close();
-                // refresh the page
+
                 Response.Redirect(Request.RawUrl);
             }
 
@@ -133,11 +146,12 @@ namespace CasaDAste
                     command1.Parameters.AddWithValue("@Razza", razza.Text);
 
                     command1.ExecuteNonQuery();
-                    Response.Write("Prodotto aggiunto correttamente");
+                    Session["Message"] = "Schiavo aggiunto correttamente, ora è tuo compito nutrirlo e crescerlo.";
                 }
                 catch (Exception ex)
                 {
                     Response.Write(ex.Message);
+                    Session["Message"] = "Errore nell'aggiunta dello schiavo, forse è meglio se ti dedichi a qualcos'altro.";
                 }
                 finally
                 {
@@ -165,11 +179,12 @@ namespace CasaDAste
                     command1.Parameters.AddWithValue("@Razza", razza.Text);
                     command1.Parameters.AddWithValue("@ID", Convert.ToInt32(idPerFavore.Text));
                     command1.ExecuteNonQuery();
-                    Response.Write("Prodotto modificato correttamente");
+                    Session["Message"] = "Schiavo modificato correttamente, ti prego dimmi che non gli hai cambiato i connotati";
                 }
                 catch (Exception ex)
                 {
                     Response.Write(ex.ToString());
+                    Session["Message"] = "Errore nella modifica dello schiavo, forse è meglio se ti dedichi a qualcos'altro.";
                 }
                 finally
                 {
