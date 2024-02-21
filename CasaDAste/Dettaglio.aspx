@@ -26,6 +26,8 @@
                 </div>
             </div>
         </div>
+    <h3 class="display-4 mt-3 mb-2 fw-semibold">Altri schiavi che potrebbero interessarti</h3>
+    <div class="row">
      <asp:Repeater ID="Repeater2" runat="server">
       <HeaderTemplate>
       </HeaderTemplate>
@@ -46,4 +48,5 @@
           </div>
       </ItemTemplate>
   </asp:Repeater>
+        </div>
 </asp:Content>
