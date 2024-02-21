@@ -3,33 +3,40 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace CasaDAste
 {
     public partial class Home : System.Web.UI.Page
     {
-        static public List<Carrello> carrello = new List<Carrello>();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
-                SqlConnection conn = new SqlConnection(Prodotti);
+                LoadProducts();
+            }
+        }
+
+        protected void LoadProducts()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
                 try
                 {
                     conn.Open();
 
-                    SqlCommand command1 = new SqlCommand
+                    SqlCommand command = new SqlCommand
                     {
                         Connection = conn,
-                        CommandText = "Select * from Prodotti"
+                        CommandText = "SELECT * FROM Prodotti"
                     };
-                    SqlDataReader reader1 = command1.ExecuteReader();
 
+                    SqlDataReader reader = command.ExecuteReader();
                     DataTable dataTable = new DataTable();
-
-                    dataTable.Load(reader1);
+                    dataTable.Load(reader);
 
                     Repeater1.DataSource = dataTable;
                     Repeater1.DataBind();
@@ -38,21 +45,16 @@ namespace CasaDAste
                 {
                     Response.Write(ex.Message);
                 }
-                finally
-                {
-                    conn.Close();
-                }
             }
         }
 
-
-        protected void Dettaglio_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        protected void Dettaglio_Command(object sender, CommandEventArgs e)
         {
-            string IDProdott = e.CommandArgument.ToString();
-            Response.Redirect($"Dettaglio.aspx?id={IDProdott}");
+            string IDProdotto = e.CommandArgument.ToString();
+            Response.Redirect($"Dettaglio.aspx?id={IDProdotto}");
         }
 
-        protected void Button1_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        protected void Button1_Command(object sender, CommandEventArgs e)
         {
             if (e.CommandName == "AddToCart")
             {
@@ -67,37 +69,45 @@ namespace CasaDAste
                     Nome = nomeProdotto,
                     Prezzo = prezzoProdotto,
                     Razza = razzaProdotto,
-                    Immagine = immagineProdotto,
+                    Immagine = immagineProdotto
                 };
+
+                List<Carrello> carrello;
 
                 if (Session["Carrello"] == null)
                 {
-                    Session["Carrello"] = new List<Carrello>();
+                    carrello = new List<Carrello>();
+                    Session["Carrello"] = carrello;
+                }
+                else
+                {
+                    carrello = (List<Carrello>)Session["Carrello"];
                 }
 
-                // Otteniamo stato della sessione e si pusha, figa.
-                List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
                 carrello.Add(nuovoProdotto);
-                
 
+                // Richiama una funzione JavaScript per riprodurre il suono
+                ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
             }
         }
 
         protected void Search_Click(object sender, EventArgs e)
         {
             string search = txtRicerca.Value.Trim();
-            string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
+            string connectionString = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(Prodotti))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
+
                     SqlCommand command = new SqlCommand
                     {
                         Connection = conn,
-                        CommandText = "Select * from Prodotti where Nome like'%' + @searchText + '%' OR Razza LIKE '%' + @searchText + '%'"
+                        CommandText = "SELECT * FROM Prodotti WHERE Nome LIKE '%' + @searchText + '%' OR Razza LIKE '%' + @searchText + '%'"
                     };
+
                     command.Parameters.AddWithValue("@searchText", search);
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -110,10 +120,6 @@ namespace CasaDAste
                 catch (Exception ex)
                 {
                     Response.Write(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
                 }
             }
         }

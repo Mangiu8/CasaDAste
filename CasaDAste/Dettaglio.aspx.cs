@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace CasaDAste
 {
@@ -79,8 +80,8 @@ namespace CasaDAste
             carrello.Add(item);
 
             Session["Carrello"] = carrello;
+            ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
 
-            Response.Redirect("Carrello.aspx");
         }
         protected void Button1_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
         {
@@ -109,6 +110,7 @@ namespace CasaDAste
                 List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
                 carrello.Add(nuovoProdotto);
 
+                ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
 
             }
 
