@@ -1,13 +1,12 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 @import "_bootstrapOverrides.scss";
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Permanent+Marker&display=swap');
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content
-
-{
+.body-content {
     margin-top: 15px;
     padding-left: 15px;
-   
     padding-right: 15px;
 }
 
@@ -32,7 +31,9 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    font-family: 'Pirata One', cursive;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -115,4 +116,8 @@ th, td {
 
 .bg-cart {
     background-color: #ffffff6b;
+}
+
+.btn {
+    font-family: Arial, Helvetica, sans-serif;
 }
