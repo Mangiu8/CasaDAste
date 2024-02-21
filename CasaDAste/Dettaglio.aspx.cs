@@ -8,6 +8,15 @@ namespace CasaDAste
 {
     public partial class Dettaglio : System.Web.UI.Page
     {
+        static public string[] imageUrls =
+        {
+            "img/frusta.gif",
+            "img/simpson.gif",
+            "img/django.gif",
+            "img/fuoco.gif",
+            "img/griffin.gif",
+            "img/onepunch.gif",
+        };
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -82,14 +91,18 @@ namespace CasaDAste
             Session["Carrello"] = carrello;
             ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
 
-            string script = @"Swal.fire({
-                        title: 'Schiavo aggiunto al carrello💘',
-                        text: 'Grazie per averci scelto, cucciolo.',
-                        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF-IVwNQFbDBhPkPIDm-R55qzbebG03LTQow&usqp=CAU',
-                        imageWidth: 400,
-                        imageHeight: 200,
-                        imageAlt: 'Immagine di esempio',
-                    });";
+            Random random = new Random();
+            int randomImageIndex = random.Next(0, imageUrls.Length);
+            string randomImageurl = imageUrls[randomImageIndex];
+
+            string script = $@"Swal.fire({{
+                title: 'Schiavo aggiunto al carrello💘',
+                text: 'Grazie per averci scelto, cucciolo.',
+                imageUrl: '{randomImageurl}',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Immagine di esempio',
+            }});";
 
             ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", script, true);
 
@@ -122,7 +135,20 @@ namespace CasaDAste
                 carrello.Add(nuovoProdotto);
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
+                Random random = new Random();
+                int randomImageIndex = random.Next(0, imageUrls.Length);
+                string randomImageurl = imageUrls[randomImageIndex];
 
+                string script = $@"Swal.fire({{
+                title: 'Schiavo aggiunto al carrello💘',
+                text: 'Grazie per averci scelto, cucciolo.',
+                imageUrl: '{randomImageurl}',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Immagine di esempio',
+            }});";
+
+                ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", script, true);
             }
 
         }

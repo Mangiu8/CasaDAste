@@ -10,9 +10,13 @@ namespace CasaDAste
 {
     public partial class Home : System.Web.UI.Page
     {
-        public string[] imageUrls = {
+        static public string[] imageUrls = {
             "img/frusta.gif",
             "img/simpson.gif",
+            "img/django.gif",
+            "img/fuoco.gif",
+            "img/griffin.gif",
+            "img/onepunch.gif",
         };
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -90,7 +94,7 @@ namespace CasaDAste
 
                 carrello.Add(nuovoProdotto);
 
-                // Richiama una funzione JavaScript per riprodurre il suono
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
             }
             Random random = new Random();
