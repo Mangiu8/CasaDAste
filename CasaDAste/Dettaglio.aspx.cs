@@ -26,15 +26,25 @@ namespace CasaDAste
                     };
                     SqlDataReader reader1 = command1.ExecuteReader();
 
-                    while (reader1.Read())
+                    if (reader1.Read())
                     {
                         imgProdotto.Src = reader1.GetString(1);
                         nomeProdotto.InnerText = reader1.GetString(2);
                         descrizioneProdotto.InnerText = reader1.GetString(3);
-                        prezzoProdotto.InnerText = "Prezzo: " + reader1.GetDecimal(4).ToString("0.00") + " Berries";
+                        prezzoProdotto.InnerText = reader1.GetDecimal(4).ToString("0.00");
                         razzaProdotto.InnerText = "Razza: " + reader1.GetString(6);
                         quantita.Attributes["max"] = reader1.GetInt32(5).ToString();
                     }
+                    reader1.Close();
+
+                    SqlCommand command2 = new SqlCommand
+                    {
+                        Connection = conn,
+                        CommandText = "SELECT TOP 5 * FROM Prodotti ORDER BY NEWID()"
+                    };
+                    SqlDataReader reader2 = command2.ExecuteReader();
+                    Repeater2.DataSource = reader2;
+                    Repeater2.DataBind();
 
                 }
                 catch (Exception ex)
@@ -51,11 +61,10 @@ namespace CasaDAste
         protected void AddToCart_Click(object sender, EventArgs e)
         {
             Carrello item = new Carrello();
-
+            item.Immagine = imgProdotto.Src;
             item.Nome = nomeProdotto.InnerText;
             item.Razza = razzaProdotto.InnerText;
-            item.Prezzo = double.Parse(prezzoProdotto.InnerText);
-
+            item.Prezzo = Convert.ToDouble(prezzoProdotto.InnerText);
 
             List<Carrello> carrello;
             if (Session["Carrello"] == null)
@@ -73,34 +82,41 @@ namespace CasaDAste
 
             Response.Redirect("Carrello.aspx");
         }
+        protected void Button1_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            if (e.CommandName == "AddToCart")
+            {
+                string[] args = e.CommandArgument.ToString().Split(';');
+                string nomeProdotto = args[0];
+                double prezzoProdotto = Convert.ToDouble(args[2]);
+                string razzaProdotto = args[1];
+                string immagineProdotto = args[3];
 
-        //protected void Button1_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
-        //{
-        //    if (e.CommandName == "AddToCart")
-        //    {
-        //        string[] args = e.CommandArgument.ToString().Split(';');
-        //        string nomeProdotto = args[0];
-        //        string razzaProdotto = args[1];
-        //        double prezzoProdotto = Convert.ToDouble(args[2]);
-        //        string immagineProdotto = args[3];
+                Carrello nuovoProdotto = new Carrello
+                {
+                    Nome = nomeProdotto,
+                    Prezzo = prezzoProdotto,
+                    Razza = razzaProdotto,
+                    Immagine = immagineProdotto,
+                };
 
-        //        Carrello nuovoProdotto = new Carrello
-        //        {
-        //            Nome = nomeProdotto,
-        //            Razza = razzaProdotto,
-        //            Prezzo = prezzoProdotto,
-        //            Immagine = immagineProdotto,
-        //        };
+                if (Session["Carrello"] == null)
+                {
+                    Session["Carrello"] = new List<Carrello>();
+                }
 
-        //        if (Session["Carrello"] == null)
-        //        {
-        //            Session["Carrello"] = new List<Carrello>();
-        //        }
+                // Otteniamo stato della sessione e si pusha, figa.
+                List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
+                carrello.Add(nuovoProdotto);
 
-        //        // Otteniamo stato della sessione e si pusha, figa.
-        //        List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
-        //        carrello.Add(nuovoProdotto);
-        //    }
-        //}
+
+            }
+
+        }
+        protected void Dettaglio_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        {
+            string IDProdott = e.CommandArgument.ToString();
+            Response.Redirect($"Dettaglio.aspx?id={IDProdott}");
+        }
     }
 }

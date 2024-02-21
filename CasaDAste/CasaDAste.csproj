@@ -355,7 +355,6 @@
       <DependentUpon>Carrello.aspx</DependentUpon>
     </Compile>
     <Compile Include="Carrello.cs" />
-    <Compile Include="CartItem.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
