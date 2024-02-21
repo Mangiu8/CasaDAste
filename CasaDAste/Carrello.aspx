@@ -13,7 +13,7 @@
                     <div class="mx-4 my-2">
                         <h4><%# Eval("Nome") %></h4>
                         <p class="mb-0">Razza: <%# Eval("Razza") %></p>
-                        <p class="mb-0">Prezzo: <%# Eval("Prezzo", "{0:C}") %></p>
+                        <p class="mb-0">Prezzo: <%# Eval("Prezzo") %> Berries</p>
                     </div>
                     <asp:Button ID="btnElimina" runat="server" CommandName="Elimina" CommandArgument='<%# Eval("Nome") %>' Text="Elimina" CssClass="btn btn-danger ms-auto" OnCommand="btnElimina_Command" />
                 </div>
