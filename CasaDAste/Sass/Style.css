@@ -12190,3 +12190,7 @@ th, td {
 #modifyingFields > * {
   max-width: 100%;
 }
+
+.bg-cart {
+  background-color: rgba(255, 255, 255, 0.4196078431);
+}
