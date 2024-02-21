@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace CasaDAste
 {
@@ -78,9 +79,20 @@ namespace CasaDAste
                 // Otteniamo stato della sessione e si pusha, figa.
                 List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
                 carrello.Add(nuovoProdotto);
-                
+
 
             }
+
+            string script = @"Swal.fire({
+                        title: 'Schiavo aggiunto al carrello💘',
+                        text: 'Grazie per averci scelto, cucciolo.',
+                        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF-IVwNQFbDBhPkPIDm-R55qzbebG03LTQow&usqp=CAU',
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        imageAlt: 'Immagine di esempio',
+                    });";
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", script, true);
         }
 
         protected void Search_Click(object sender, EventArgs e)
