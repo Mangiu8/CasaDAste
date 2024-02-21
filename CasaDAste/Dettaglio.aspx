@@ -37,7 +37,7 @@
                   <img class="mx-auto p-2" src='<%# String.IsNullOrEmpty(Eval("Img") as string) ? "img/default.jpg" : Eval("Img") %>' alt="Immagine dello Schiavo">                              
                   <div class="card-body d-flex flex-column justify-content-between text-center">
                       <h5 class="card-title fw-bolder display-5 "><%# Eval("Nome") %></h5>
-                      <p class="card-text fs-3 fw-semibold"><%# Eval("Prezzo") %> Berries</p>
+                      <p class="card-text fs-3 fw-semibold"><%# string.Format("{0:0.00}", Eval("Prezzo")) %> Berries</p>
                       <p class="card-text fs-3 fw-semibold">Razza: <%# Eval("Razza") %></p>
                       <div class="d-flex flex-wrap justify-content-between">
                         <asp:Button ID="Dettaglio" runat="server" Text="Mostra Dettaglio" CssClass="btn btn-light rounded-pill px-3 fw-semibold" CommandArgument='<%# Eval("IDProdott") %>' OnCommand="Dettaglio_Command" />                                                                             

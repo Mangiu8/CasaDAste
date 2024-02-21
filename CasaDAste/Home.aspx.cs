@@ -89,6 +89,17 @@ namespace CasaDAste
                 // Richiama una funzione JavaScript per riprodurre il suono
                 ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
             }
+
+            string script = @"Swal.fire({
+                        title: 'Schiavo aggiunto al carrello💘',
+                        text: 'Grazie per averci scelto, cucciolo.',
+                        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF-IVwNQFbDBhPkPIDm-R55qzbebG03LTQow&usqp=CAU',
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        imageAlt: 'Immagine di esempio',
+                    });";
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", script, true);
         }
 
         protected void Search_Click(object sender, EventArgs e)
