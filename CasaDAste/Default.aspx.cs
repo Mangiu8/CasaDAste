@@ -10,8 +10,8 @@ namespace CasaDAste
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-    {
-        string script = @"
+            {
+                string script = @"
             Swal.fire({
                 imageUrl: 'https://www.shutterstock.com/image-vector/ancient-roman-gladiator-sword-slave-600nw-2100757492.jpg',
                 imageAlt: 'schiavo',
@@ -23,8 +23,8 @@ namespace CasaDAste
 
 
 
-        ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
-    }
+                ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -41,11 +41,7 @@ namespace CasaDAste
                 SqlDataReader reader1 = command1.ExecuteReader();
                 while (reader1.Read())
                 {
-                    // Check if the username and password are correct
-                    // If the username and password are correct, check if the user is an administrator
-                    // If the user is an administrator, redirect to the BackOffice page
-                    // If the user is not an administrator, redirect to the Home page
-                    // If the username and password are incorrect, display an error message
+
                     if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "True")
                     {
                         Session["User"] = "admin";
