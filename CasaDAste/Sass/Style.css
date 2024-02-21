@@ -1,4 +1,5 @@
 ﻿@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -12103,6 +12104,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  font-family: "Pirata One", cursive;
 }
 
 .overflow-auto {
@@ -12160,9 +12162,10 @@ body {
 }
 
 #MainContent_gridViewBackOffice {
-  background-color: rgba(249, 246, 246, 0.4509803922);
+  background-color: rgba(249, 246, 246, 0.85);
   border-color: rgba(249, 246, 246, 0.85);
   font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 table {
@@ -12181,34 +12184,11 @@ th, td {
   width: 7rem;
 }
 
-#primoFlex {
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem;
+#modifyingFields {
+  font-family: "Times New Roman", Times, serif;
 }
-
-#secondoFlex {
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem;
-}
-
-#terzoFlex {
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem;
-}
-
-#ContainerFlex {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.btnModifica {
-  margin-top: 20px;
-  margin-left: 10px;
+#modifyingFields > * {
+  max-width: 100%;
 }
 
 .bg-cart {

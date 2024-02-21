@@ -10,6 +10,7 @@ namespace CasaDAste
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["User"] = "admin"; //todo: da togliere questa riga
             if (!IsPostBack)
             {
                 string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
@@ -56,7 +57,7 @@ namespace CasaDAste
                 {
                     immagine.Text = reader1.GetString(1);
                     nome.Text = reader1.GetString(2);
-                    descrizione.Text = reader1.GetString(3);
+                    descrizione.Value = reader1.GetString(3);
                     prezzo.Text = reader1.GetDecimal(4).ToString();
                     quantita.Text = reader1.GetInt32(5).ToString();
                     razza.Text = reader1.GetString(6);
@@ -126,7 +127,7 @@ namespace CasaDAste
 
                     command1.Parameters.AddWithValue("@Img", immagine.Text);
                     command1.Parameters.AddWithValue("@Nome", nome.Text);
-                    command1.Parameters.AddWithValue("@Descrizione", descrizione.Text);
+                    command1.Parameters.AddWithValue("@Descrizione", descrizione.Value);
                     command1.Parameters.AddWithValue("@Prezzo", prezzo.Text);
                     command1.Parameters.AddWithValue("@QuantitaDisponibile", quantita.Text);
                     command1.Parameters.AddWithValue("@Razza", razza.Text);
@@ -158,7 +159,7 @@ namespace CasaDAste
                     };
                     command1.Parameters.AddWithValue("@Img", immagine.Text);
                     command1.Parameters.AddWithValue("@Nome", nome.Text);
-                    command1.Parameters.AddWithValue("@Descrizione", descrizione.Text);
+                    command1.Parameters.AddWithValue("@Descrizione", descrizione.Value);
                     command1.Parameters.AddWithValue("@Prezzo", Convert.ToDecimal(prezzo.Text));
                     command1.Parameters.AddWithValue("@QuantitaDisponibile", Convert.ToInt32(quantita.Text));
                     command1.Parameters.AddWithValue("@Razza", razza.Text);

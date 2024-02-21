@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace CasaDAste
 {
@@ -40,7 +41,7 @@ namespace CasaDAste
                     SqlCommand command2 = new SqlCommand
                     {
                         Connection = conn,
-                        CommandText = "SELECT TOP 5 * FROM Prodotti ORDER BY NEWID()"
+                        CommandText = "SELECT TOP 6 * FROM Prodotti ORDER BY NEWID()"
                     };
                     SqlDataReader reader2 = command2.ExecuteReader();
                     Repeater2.DataSource = reader2;
@@ -79,8 +80,8 @@ namespace CasaDAste
             carrello.Add(item);
 
             Session["Carrello"] = carrello;
+            ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
 
-            Response.Redirect("Carrello.aspx");
         }
         protected void Button1_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
         {
@@ -109,6 +110,7 @@ namespace CasaDAste
                 List<Carrello> carrello = (List<Carrello>)Session["Carrello"];
                 carrello.Add(nuovoProdotto);
 
+                ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
 
             }
 
