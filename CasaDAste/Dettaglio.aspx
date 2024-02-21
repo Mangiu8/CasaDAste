@@ -49,4 +49,10 @@
       </ItemTemplate>
   </asp:Repeater>
         </div>
+    <script type="text/javascript">
+    function PlaySound() {
+        var audio = new Audio('img/Frusta.mp3');
+        audio.play();
+    }
+    </script>
 </asp:Content>
