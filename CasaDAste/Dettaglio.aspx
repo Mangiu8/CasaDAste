@@ -20,7 +20,11 @@
                         <div class="d-flex mb-5 align-items-center">
                             <p class="me-3 mb-0">Seleziona la quantita' desiderata </p>
                             <asp:TextBox ID="quantita" class="me-3" TextMode="Number" Min="1" Max="1000" runat="server"></asp:TextBox>
-                            <asp:Button ID="AddToCart" runat="server" Text="Aggiungi al carrello" class="btn btn-primary" OnClick="AddToCart_Click"/>
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                               <asp:Button ID="AddToCart" runat="server" Text="Aggiungi al carrello" class="btn btn-primary" OnClick="AddToCart_Click" OnClientClick="return mostraImmagine();"/>
+                               </ContentTemplate>
+                               </asp:UpdatePanel> 
                         </div>                       
                     </div>
                 </div>
@@ -50,9 +54,9 @@
   </asp:Repeater>
         </div>
     <script type="text/javascript">
-    function PlaySound() {
-        var audio = new Audio('img/Frusta.mp3');
-        audio.play();
-    }
+        function PlaySound() {
+            var audio = new Audio('img/Frusta.mp3');
+            audio.play();
+        }
     </script>
 </asp:Content>
