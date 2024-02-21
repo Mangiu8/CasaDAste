@@ -179,7 +179,7 @@ namespace CasaDAste
                     command1.Parameters.AddWithValue("@Razza", razza.Text);
                     command1.Parameters.AddWithValue("@ID", Convert.ToInt32(idPerFavore.Text));
                     command1.ExecuteNonQuery();
-                    Session["Message"] = "Schiavo modificato correttamente, ti prego dimmi che non gli hai cambiato i connotati";
+                    Session["Message"] = "Schiavo modificato correttamente, ti prego dimmi che non gli hai cambiato i connotati.";
                 }
                 catch (Exception ex)
                 {

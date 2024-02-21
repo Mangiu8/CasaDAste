@@ -10,6 +10,10 @@ namespace CasaDAste
 {
     public partial class Home : System.Web.UI.Page
     {
+        public string[] imageUrls = {
+            "img/frusta.gif",
+            "img/simpson.gif",
+        };
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -89,15 +93,18 @@ namespace CasaDAste
                 // Richiama una funzione JavaScript per riprodurre il suono
                 ScriptManager.RegisterStartupScript(this, GetType(), "PlaySound", "PlaySound();", true);
             }
+            Random random = new Random();
+            int randomImageIndex = random.Next(0, imageUrls.Length);
+            string randomImageurl = imageUrls[randomImageIndex];
 
-            string script = @"Swal.fire({
-                        title: 'Schiavo aggiunto al carrello💘',
-                        text: 'Grazie per averci scelto, cucciolo.',
-                        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF-IVwNQFbDBhPkPIDm-R55qzbebG03LTQow&usqp=CAU',
-                        imageWidth: 400,
-                        imageHeight: 200,
-                        imageAlt: 'Immagine di esempio',
-                    });";
+            string script = $@"Swal.fire({{
+                title: 'Schiavo aggiunto al carrello💘',
+                text: 'Grazie per averci scelto, cucciolo.',
+                imageUrl: '{randomImageurl}',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Immagine di esempio',
+            }});";
 
             ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", script, true);
         }
