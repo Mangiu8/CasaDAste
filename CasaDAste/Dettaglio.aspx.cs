@@ -40,7 +40,7 @@ namespace CasaDAste
                     SqlCommand command2 = new SqlCommand
                     {
                         Connection = conn,
-                        CommandText = "SELECT TOP 5 * FROM Prodotti ORDER BY NEWID()"
+                        CommandText = "SELECT TOP 6 * FROM Prodotti ORDER BY NEWID()"
                     };
                     SqlDataReader reader2 = command2.ExecuteReader();
                     Repeater2.DataSource = reader2;
