@@ -1,4 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
 @import "_bootstrapOverrides.scss";
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Permanent+Marker&display=swap');
 
@@ -31,7 +32,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    font-family: "Permanent Marker", cursive;
+    font-family: "Allerta Stencil", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -80,7 +81,7 @@ body {
 #FormDiv {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
 }
 .BOTTONE {
     margin-top: 0.6rem;
