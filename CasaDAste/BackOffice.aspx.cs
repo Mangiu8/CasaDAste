@@ -10,7 +10,7 @@ namespace CasaDAste
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["User"] = "admin"; //todo: da togliere questa riga
+            // Session["User"] = "admin"; //todo: da togliere questa riga
             if (!IsPostBack)
             {
                 if (Session["Message"] != null)

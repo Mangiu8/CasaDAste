@@ -25,8 +25,7 @@
         <div class="container">
             <div class="row">
                 <asp:Repeater ID="Repeater1" runat="server">
-                    <HeaderTemplate>
-                    </HeaderTemplate>
+               
                     <ItemTemplate>
                         <div class="col-md-4 mb-4">
                             <div class="card h-100 manifestoWanted shadow rounded-3">
