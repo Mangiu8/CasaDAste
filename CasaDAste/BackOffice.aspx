@@ -8,28 +8,31 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>BackOffice</h2>
-    <%--<div id="ContainerFlex">
-        <div id="primoFlex">
-            <asp:Label Text="Aggiungi/Modifica Immagine" runat="server" />
-
-            <asp:TextBox ID="immagine" runat="server" />
-
-            <asp:Label Text="Aggiungi/Modifica Nome" runat="server" />
-
-            <asp:TextBox ID="nome" runat="server" />
-
-        </div>
+    <div id="ContainerFlex">
+    <div id="primoFlex">
+    <asp:Label Text="Aggiungi/Modifica Immagine" runat="server" />
+  
+    <asp:TextBox ID="immagine" runat="server" />  
+   
+    <asp:Label Text="Aggiungi/Modifica Nome" runat="server" />
+  
+    <asp:TextBox ID="nome" runat="server" />
+   
+   </div> 
         <div id="secondoFlex">
-            <asp:Label Text="Aggiungi/Modifica Descrizione" runat="server" />
+    <asp:Label Text="Aggiungi/Modifica Descrizione" runat="server" />
+  
+    <asp:TextBox ID="descrizione" runat="server" />
+    <asp:Label Text="Aggiungi/Modifica Prezzo" runat="server" />
+  
+    <asp:TextBox ID="prezzo" runat="server" />
+ </div>
+   <div id="terzoFlex">
+    <asp:Label Text="Aggiungi/Modifica Quantita" runat="server" />
+  
+    <asp:TextBox ID="quantita" runat="server" />
 
-            <asp:TextBox ID="prezzo" runat="server" />
-        </div>
-        <div id="terzoFlex">
-            <asp:Label Text="Aggiungi/Modifica Quantita" runat="server" />
-
-            <asp:TextBox ID="quantita" runat="server" />
-
-            <asp:Label Text="Aggiungi/Modifica Razza" runat="server" />
+    <asp:Label Text="Aggiungi/Modifica Razza" runat="server" />
 
             <asp:TextBox ID="razza" runat="server" />
             <asp:TextBox ID="idPerFavore" runat="server" class="d-none"></asp:TextBox>
