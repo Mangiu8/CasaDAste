@@ -11,7 +11,7 @@ namespace CasaDAste
         {
             if (!IsPostBack)
             {
-                string script = "alert('Ogni riferimento a cose o persone e puramente casuale');";
+                string script = "alert('Ogni riferimento a cose o persone è puramente casuale, forse...');";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertScript", script, true);
             }
         }
