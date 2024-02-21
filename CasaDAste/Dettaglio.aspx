@@ -11,7 +11,12 @@
                         <h5 id="nomeProdotto" runat="server" class="card-title display-3 fw-semibold"></h5>
                         <p id="descrizioneProdotto" runat="server" class="card-text fw-semibold fs-3"></p>
                         <p id="razzaProdotto" runat="server" class="card-text fw-semibold text-black-50 fs-4"></p>
-                        <p id="prezzoProdotto" runat="server" class="card-text fw-semibold fs-3"></p>
+                        <div class="d-flex align-items-center">
+                            <p class="me-2 card-text fw-semibold fs-3 mb-0">Prezzo: </p>
+                            <p id="prezzoProdotto" runat="server" class="card-text fw-semibold fs-3 mb-0"></p>
+                            <p class="ms-2 card-text fw-semibold fs-3"> Berries</p>
+                        </div>
+                        
                         <div class="d-flex mb-5 align-items-center">
                             <p class="me-3 mb-0">Seleziona la quantita' desiderata </p>
                             <asp:TextBox ID="quantita" class="me-3" TextMode="Number" Min="1" Max="1000" runat="server"></asp:TextBox>
