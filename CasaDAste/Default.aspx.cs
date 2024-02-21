@@ -30,14 +30,19 @@ namespace CasaDAste
                 SqlDataReader reader1 = command1.ExecuteReader();
                 while (reader1.Read())
                 {
+                    // Check if the username and password are correct
+                    // If the username and password are correct, check if the user is an administrator
+                    // If the user is an administrator, redirect to the BackOffice page
+                    // If the user is not an administrator, redirect to the Home page
+                    // If the username and password are incorrect, display an error message
                     if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "True")
                     {
-                        Session["Username"] = TextBox1.Text;
+                        Session["User"] = "admin";
                         Response.Redirect("BackOffice.aspx");
                     }
                     else if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "False")
                     {
-                        Session["Username"] = TextBox1.Text;
+                        Session["User"] = "user";
                         Response.Redirect("Home.aspx");
                     }
                     else
