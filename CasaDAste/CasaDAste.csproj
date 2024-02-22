@@ -109,6 +109,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
+    <Content Include="img\Salvo.jpg" />
     <Content Include="img\woodbg.jpg" />
     <Content Include="node_modules\%40popperjs\core\dist\cjs\enums.js" />
     <Content Include="node_modules\%40popperjs\core\dist\cjs\popper-base.js" />
