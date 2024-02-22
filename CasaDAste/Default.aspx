@@ -20,7 +20,7 @@
                         <p>Accedi e dai un'occhiata alle nostre offerte</p>
                     </div>
                     <div id="FormDiv">
-                        <asp:TextBox CssClass="formLog" ID="TextBox1" runat="server" placeholder="Username"></asp:TextBox>
+                        <asp:TextBox CssClass="formLog" ID="TextBox1" runat="server" placeholder="Username" ></asp:TextBox>
 
                         <asp:TextBox CssClass="formLog" ID="TextBox2" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
 
@@ -28,6 +28,11 @@
                         <br />
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                     </div>
+                    <div class="d-flex">
+                        <p class="m-0 me-2">Non hai ancora un account? </p>
+                        <asp:Button ID="CreaAccount" CssClass="bg-transparent border-0 text-primary" runat="server" Text="Crealo ora!" OnClick="CreaAccount_Click"/>
+                    </div>
+                    
                 </div>
 
             </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI;
@@ -27,41 +28,88 @@ namespace CasaDAste
         {
             string Utente = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
             SqlConnection conn = new SqlConnection(Utente);
-            try
+            if (Button1.Text == "Accedi")
             {
-                conn.Open();
-
-                SqlCommand command1 = new SqlCommand();
-                command1.Connection = conn;
-                command1.CommandText = "Select * from Utenti";
-                SqlDataReader reader1 = command1.ExecuteReader();
-                while (reader1.Read())
+                try
                 {
-                    if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "True")
+                    conn.Open();
+
+                    SqlCommand command1 = new SqlCommand();
+                    command1.Connection = conn;
+                    command1.CommandText = "Select * from Utenti";
+                    SqlDataReader reader1 = command1.ExecuteReader();
+                    while (reader1.Read())
                     {
-                        Session["User"] = "admin";
-                        Response.Redirect("BackOffice.aspx");
+                        if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "True")
+                        {
+                            Session["User"] = "admin";
+                            Response.Redirect("BackOffice.aspx");
+                        }
+                        else if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "False")
+                        {
+                            Session["User"] = "user";
+                            Response.Redirect("Home.aspx");
+                        }
+                        else
+                        {
+                            Label1.Text = "Username o Password errati";
+                        }
                     }
-                    else if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "False")
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            else
+            {
+                if (TextBox1.Text.IsNullOrWhiteSpace() || TextBox2.Text.IsNullOrWhiteSpace())
+                {
+                    Label1.Text = "Inserisci un username e una password per creare l'account";
+                }
+                
+                else
+                {
+                    //registrati
+                    try
                     {
-                        Session["User"] = "user";
-                        Response.Redirect("Home.aspx");
+                        conn.Open();
+
+                        SqlCommand command1 = new SqlCommand
+                        {
+                            Connection = conn,
+                            CommandText = "INSERT INTO Utenti (Username, Psw, Administrator) " +
+                            "VALUES (@Username, @Psw, @Admin);"
+                        };
+
+
+                        command1.Parameters.AddWithValue("@Username", TextBox1.Text);
+                        command1.Parameters.AddWithValue("@Psw", TextBox2.Text);
+                        command1.Parameters.AddWithValue("@Admin", 0);
+                        command1.ExecuteNonQuery();
                     }
-                    else
+
+                    catch (Exception ex)
                     {
-                        Label1.Text = "Username o Password errati";
+                        Response.Write(ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                Response.Write(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
 
+        }
+
+    protected void CreaAccount_Click(object sender, EventArgs e)
+        {
+            Button1.Text = "Crea account";
+            Button1.CssClass = "px-2 btn mt-3 btn-success";
         }
     }
 }
