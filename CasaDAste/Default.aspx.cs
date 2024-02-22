@@ -20,13 +20,9 @@ namespace CasaDAste
                 icon: 'warning',
                 confirmButtonText: 'Entra'
             });";
-
-
-
                 ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
             }
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             string Utente = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
@@ -41,7 +37,6 @@ namespace CasaDAste
                 SqlDataReader reader1 = command1.ExecuteReader();
                 while (reader1.Read())
                 {
-
                     if (reader1["Username"].ToString() == TextBox1.Text && reader1["Psw"].ToString() == TextBox2.Text && reader1["Administrator"].ToString() == "True")
                     {
                         Session["User"] = "admin";
@@ -55,7 +50,6 @@ namespace CasaDAste
                     else
                     {
                         Label1.Text = "Username o Password errati";
-
                     }
                 }
             }

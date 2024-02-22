@@ -6,7 +6,6 @@
     Inherits="CasaDAste.BackOffice" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
     <h2>BackOffice</h2>
     <asp:Label ID="Label1" runat="server" Text="Benvenuto nel tuo backoffice" />
     <br />
@@ -27,7 +26,6 @@
         <Textarea ID="descrizione" runat="server" />
         <asp:LinkButton ID="BtnUpdate" CssClass="btn btn-success my-4" runat="server" Text="Aggiungi" OnClick="BtnUpdate_Click" CommandArgument='<%# Eval("IDProdott") %>'></asp:LinkButton>
     </div>
-
     <asp:GridView
         ID="gridViewBackOffice"
         runat="server"
@@ -62,8 +60,5 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
-
-
     </asp:GridView>
-
 </asp:Content>
