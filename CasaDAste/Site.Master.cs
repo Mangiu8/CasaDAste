@@ -38,6 +38,7 @@ namespace CasaDAste
             }
         }
 
+
         protected void LinkLogout_Click(object sender, EventArgs e)
         {
             Session["User"] = null;

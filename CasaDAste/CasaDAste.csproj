@@ -100,10 +100,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="BackOffice.aspx" />
     <Content Include="Carrello.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Dettaglio.aspx" />
     <Content Include="favicon.ico" />
@@ -333,13 +331,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BackOffice.aspx.cs">
       <DependentUpon>BackOffice.aspx</DependentUpon>
@@ -356,13 +347,6 @@
       <DependentUpon>Carrello.aspx</DependentUpon>
     </Compile>
     <Compile Include="Carrello.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
