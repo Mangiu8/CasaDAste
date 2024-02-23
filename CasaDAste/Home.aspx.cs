@@ -138,6 +138,8 @@ namespace CasaDAste
 
                     Repeater1.DataSource = dataTable;
                     Repeater1.DataBind();
+                    ScriptManager.RegisterStartupScript(this, GetType(), "playMurlok", "playMurlok();", true);
+
                 }
                 catch (Exception ex)
                 {

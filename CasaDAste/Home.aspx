@@ -47,5 +47,9 @@
         var audio = new Audio('img/Frusta.mp3');
         audio.play();
     }
+    function playMurlok() {
+        var audio = new Audio('img/murloc.mp3');
+        audio.play();
+    }
 </script>
 </asp:Content>

@@ -57,5 +57,9 @@
             var audio = new Audio('img/Frusta.mp3');
             audio.play();
         }
+        function playAHHH() {
+            var audio = new Audio('img/ahhh.mp3')
+            audio.play();
+        }
     </script>
 </asp:Content>
