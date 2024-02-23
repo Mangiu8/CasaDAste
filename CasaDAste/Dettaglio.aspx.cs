@@ -21,9 +21,9 @@ namespace CasaDAste
         protected void Page_Load(object sender, EventArgs e)
         {
             // Esegue uno script javascript per far partire un suono quando la pagina è completamente caricata
-            ScriptManager.RegisterStartupScript(this, GetType(), "playAHHH", "playAHHH();", true);
             if (!IsPostBack)
             {
+                ScriptManager.RegisterStartupScript(this, GetType(), "playAHHH", "playAHHH();", true);
                 string IDProdotto = Request.QueryString["id"]; // Ottiene l'ID del prodotto dalla query string
 
                 string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
