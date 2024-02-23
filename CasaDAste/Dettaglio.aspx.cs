@@ -22,7 +22,6 @@ namespace CasaDAste
             ScriptManager.RegisterStartupScript(this, GetType(), "playAHHH", "playAHHH();", true);
             if (!IsPostBack)
             {
-
                 string IDProdotto = Request.QueryString["id"];
 
                 string Prodotti = ConfigurationManager.ConnectionStrings["Schiavi"].ConnectionString.ToString();
